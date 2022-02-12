@@ -20,19 +20,16 @@ function signe(nombre) {
  * Astuce : un nombre pair est un nombre dont le reste de la division par 2 est 0.
  */
 function nombresPairs(nombres) {
-    let tableau = [1,2,3,4,5,6,7,8,9,10];
-    let paires = [];
-    let impaires = [];
-
-    for(let i = 0; i < tableau.length; i++){
-        if(i % 2 === 0){
-            paires.push(i);
-        } else {
-            impaires.push(i);
+    let a = 0;
+    let result = [];
+    while (a <= nombres.length){
+        if (nombres[a]%2 === 0){
+            result.push(nombres[a]);
         }
+        a = a + 1
     }
-    console.log(paires);
-    console.log(impaires);
-}
-console.log(nombresPairs()); 
+    return result
 
+}
+
+console.log(nombresPairs([0,4,7,3,6,24,11,31,-5]))

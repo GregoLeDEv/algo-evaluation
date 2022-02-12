@@ -15,12 +15,29 @@
  * 
  */
  function mouvementsFou(ligne, colonne) {
-    return [
-        [ligne - 1, colonne - 1],
-        [ligne, colonne],
-        [ligne + 1, colonne + 1],
-    ]
+    let l;
+    let c;
+    let newTable = [];
+
+    for (l = ligne, c = colonne; l > 1 && c < 8; l--, c++) {
+        newTable.push([l - 1, c + 1]);
+    }
+
+    for (l = ligne, c = colonne; l < 8 && c > 1; l++, c--) {
+        newTable.push([l + 1, c - 1]);
+    }
+    
+    for (l = ligne, c = colonne; l < 8 && c < 8; l++, c++) {
+        newTable.push([l + 1, c + 1]);
+    }
+    
+    for (l = ligne, c = colonne; l > 1 && c > 1; l--, c--) {
+        newTable.push([l - 1, c - 1]);
+    }
+
+    return newTable
 }
+console.log(mouvementsFou(4, 4))
 
 /**
  * Ce log ne fait pas partie de l'exercice, ne vous en préoccupez donc pas, mais il vous aidera à afficher vos tests avec un joli formattage.
